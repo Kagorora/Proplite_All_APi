@@ -35,6 +35,7 @@ class propertiesAd {
     static updatePropertystatus(req, res) {
         const foundWholeObject = propertyModal.find(p => p.id === parseInt(req.params.id));
 
+
         if (foundWholeObject.status === 'sold') {
             return res.status(400).json({ status: 'error', error: 'Already sold' })
         }
