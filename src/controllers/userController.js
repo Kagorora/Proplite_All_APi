@@ -9,16 +9,16 @@ dotenv.config();
 
 class userController {
 
-    // Welcome
+    // get all routes
+
     // static welcome(req, res) {
-    //     // res.send("welcome To PropertyPro");
-    //     res.status(200).json({ status: 200, message: 'welcome'})
+    //     res.status(200).json({ status: 200, message: '/api/v1/auth/signup'})
     // };
 
     //get all users
-    // static users(req, res) {
-    //     res.send(userModal)
-    // }
+    static users(req, res) {
+        res.status(200).json({ status: 200, data: userModal})
+    }
 
       // Sign up
       static signup(req, res) {
