@@ -10,14 +10,15 @@ dotenv.config();
 class userController {
 
     // Welcome
-    static welcome(req, res) {
-        res.send("welcome To PropertyPro");
-    };
+    // static welcome(req, res) {
+    //     // res.send("welcome To PropertyPro");
+    //     res.status(200).json({ status: 200, message: 'welcome'})
+    // };
 
     //get all users
-    static users(req, res) {
-        res.send(userModal)
-    }
+    // static users(req, res) {
+    //     res.send(userModal)
+    // }
 
       // Sign up
       static signup(req, res) {
@@ -36,7 +37,7 @@ class userController {
 
         if (newUser.error) {
             return res.status(400).json({ status: 400, 
-                error: newUser.error.details[0].message })
+                error: newUser.error.details[0].message });
         }
 
         userModal.push(newUser);

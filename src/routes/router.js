@@ -5,15 +5,14 @@ import propertiesController from '../controllers/propertiesController'
 const route = express.Router();
 
 // Welcome 
-route.get('/', userController.welcome);
+// route.get('/', userController.welcome);
 
 
 
 
 // ============================================= USERS ================================
-
 // get all users
-route.get('/api/v1/auth/users', userController.users);
+// route.get('/api/v1/auth/users', userController.users);
 
 // Sign Up
 route.post('/api/v1/auth/signup', userController.signup);
