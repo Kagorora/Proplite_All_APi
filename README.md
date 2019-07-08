@@ -14,15 +14,13 @@ SRC  |
             | userSchema.js
           propertiesController.js
           userController.js
-     | HELPER
-     
-     | MODALS
+      | HELPER
+      | MODALS
          users.js
          property.js
      | ROUTES
        | router.js
-       
-     
+      
 TEST | 
      | propertiesTest.js
      | userTest.js
