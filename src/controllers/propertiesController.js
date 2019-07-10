@@ -19,9 +19,11 @@ class propertiesAd {
         const idNo = propertyModal.length + 1;
 
         const { owner, status, type, price, state, city, address } = req.body;
-        const newProperty = ({
-            id: idNo, status, type, price, state, city, address
+        const newProperty = propertySchema.validate({
+            id: idNo, owner,status, type, price, state, city, address
         });
+
+        if(!newProperty.error){
 
         propertyModal.push(newProperty);
         return res.status(201).json({
@@ -29,6 +31,10 @@ class propertiesAd {
                 id: idNo, owner, status, type, price, state, city, address
             }
         })
+
+        }
+
+       return res.status(400).json({ status: 400, error: newProperty.error.details[0].message});
     }
 
     // mark product status as sold 
@@ -114,12 +120,14 @@ class propertiesAd {
 
     // find By Detail
     static findByDetail(req, res) {
-        const QuerySearch = propertyModal.filter(p => p.type === req.query.type);
+        const QuerySearch = propertyModal.filter(p => p.type === parseInt(req.query.type));
+
 
             return res.status(200).json({ status: 200, data: { QuerySearch }});
 
-
+            // return res.status(404).json({ status: 404, error: 'property Not found'});
         
+
 }
 }
 

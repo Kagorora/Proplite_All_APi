@@ -12,8 +12,7 @@ describe('Property test', () => {
     // ====================== POST PRODUCT =====================
     it('should be able to post product', (done) => {
         const newProperty = {
-            id: 10,
-            owner: 'k',
+            owner: 'kagorora',
             status: 'sold',
             price: '25000',
             state: 'Rwanda',
@@ -36,6 +35,75 @@ describe('Property test', () => {
                 res.body.data.should.have.property('city');
                 res.body.data.should.have.property('address');
                 res.body.data.should.have.property('type');
+            });
+        done();
+    });
+
+        it('should not to post product if name has less than one character', (done) => {
+        const newProperty = {
+            owner: 'k',
+            status: 'sold',
+            price: '25000',
+            state: 'Rwanda',
+            city: 'Kigali',
+            address: 'KN100',
+            type: '3B'
+        }
+
+        chai.request(server)
+            .post('/api/v1/property/')
+            .send(newProperty)
+            .end((err, res) => {
+                res.body.should.be.an('object');
+                res.body.status.should.be.equal(400);
+                res.body.error.should.be.equal('\"owner\" length must be at least 2 characters long');
+            });
+        done();
+    });
+
+
+        it('should not post product if all fields are not filled', (done) => {
+        const newProperty = { 
+            owner: 'n',
+            status: 'sold',
+            price: '25000',
+            state: 'Rwanda',
+            city: 'Kigali',
+            address: 'KN100',
+            type: '3B'
+        }
+
+        chai.request(server)
+            .post('/api/v1/property/')
+            .send(newProperty)
+            .end((err, res) => {
+                res.body.should.be.an('object');
+                res.body.status.should.be.equal(400);
+                res.body.error.should.be.equal('\"owner\" length must be at least 2 characters long');
+            });
+        done();
+    });
+
+
+            it('should not post product if owner name is a number', (done) => {
+        const newProperty = { 
+
+    		owner: 1,
+            status: 'sold',
+            price: '25000',
+            state: 'Rwanda',
+            city: 'Kigali',
+            address: 'KN100',
+            type: '3B'
+        }
+
+        chai.request(server)
+            .post('/api/v1/property/')
+            .send(newProperty)
+            .end((err, res) => {
+                res.body.should.be.an('object');
+                res.body.status.should.be.equal(400);
+                res.body.error.should.be.equal('\"owner\" must be a string');
             });
         done();
     });
@@ -92,6 +160,7 @@ describe('Property test', () => {
             });
         done();
     });
+    
 
 
         // ====================== GET ONE PROPERTY =====================

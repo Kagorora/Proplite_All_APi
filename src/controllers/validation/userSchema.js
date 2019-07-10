@@ -1,5 +1,4 @@
 import Joi from 'joi';
-import JoiPasswordComplexity from 'joi-password-complexity';
  
 const userSchema = Joi.object().keys({
     id: Joi.number().required(),
