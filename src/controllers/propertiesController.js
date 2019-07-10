@@ -35,9 +35,8 @@ class propertiesAd {
     static updatePropertystatus(req, res) {
         const foundWholeObject = propertyModal.find(p => p.id === parseInt(req.params.id));
 
-
         if (foundWholeObject.status === 'sold') {
-            return res.status(400).json({ status: 'error', error: 'Already sold' })
+            return res.status(400).json({ status: 400, error: 'status already sold' })
         }
         foundWholeObject.status = 'sold';
 
@@ -106,7 +105,7 @@ class propertiesAd {
     static oneProperty(req, res) {
         const product = propertyModal.find(p => p.id === parseInt(req.params.id));
         if(!product){
-            return res.status(404).json({ status: 404, error: 'not found'});
+            return res.status(404).json({ status: 404, error: 'property not found'});
         }
 
         return res.status(200).json({ status: 200, data: product});
@@ -117,16 +116,11 @@ class propertiesAd {
     static findByDetail(req, res) {
         const QuerySearch = propertyModal.filter(p => p.type === req.query.type);
 
-        if (QuerySearch) {
-            return res.status(200).json({
-                status: 200,
-                data: {
-                    QuerySearch
-                }
-            });
-        }
-    }
-}
+            return res.status(200).json({ status: 200, data: { QuerySearch }});
 
+
+        
+}
+}
 
 export default propertiesAd;

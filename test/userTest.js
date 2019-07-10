@@ -4,7 +4,6 @@ import server from '../server';
 
 
 // configuration of chai
-
 chai.should();
 chai.use(chaiHttp);
 
@@ -75,9 +74,10 @@ describe('User test', () => {
             done();
         });
     
-        it('should not able to sign up if fields not filled', (done) => {
+        it('should not able to sign up if email exist', (done) => {
             const newUser = {
                 id: 1,
+                email: 'kagororamaxime@gmail.com',
                 first_Name: 'kagorora',
                 last_Name: 'Maxime',
                 password: '12345678',
@@ -93,6 +93,30 @@ describe('User test', () => {
                     res.body.should.be.an('object');
                     res.body.status.should.be.equal(400);
                     res.body.error.should.be.a('string');
+                });
+            done();
+        });
+
+                it('should not able to sign up if email has no email credentials', (done) => {
+            const newUser = {
+                id: 1,
+                email: 'kagororamaximegmail.com',
+                first_Name: 'kagorora',
+                last_Name: 'Maxime',
+                password: '12345678',
+                phoneNumber: '0782299719',
+                address: 'Kigali',
+                is_admin: false
+            }
+    
+            chai.request(server)
+                .post('/api/v1/auth/signup')
+                .send(newUser)
+                .end((err, res) => {
+                    res.body.should.be.an('object');
+                    res.body.status.should.be.equal(400);
+                    res.body.error.should.be.a('string');
+                    res.body.error.should.be.equal('\"email\" must be a valid email');
                 });
             done();
         });
