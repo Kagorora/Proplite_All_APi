@@ -11,7 +11,7 @@ class userController {
 
   // get all users
   static users(req, res) {
-    res.status(200).json({ status: 200, data: userModal });
+     return res.status(200).json({ status: 200, data: userModal });
   }
 
   // Sign up
@@ -33,12 +33,7 @@ class userController {
       id: idNo, email, first_Name, last_Name, password: hashedPassword, phoneNumber, address, is_admin,
     });
 
-    if (newUser.error) {
-      return res.status(400).json({
-        status: 400,
-        error: newUser.error.details[0].message,
-      });
-    }
+    if (newUser.error) { return res.status(400).json({ status: 400, error: newUser.error.details[0].message });}
 
     userModal.push(newUser);
 

@@ -12,6 +12,17 @@ chai.use(chaiHttp);
 
 describe('User test', () => {
 
+    //======================== get users ======================
+    it('should be able to display all the users', (done) => {
+                    chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.body.should.be.an('object');
+                    res.body.status.should.be.equal(200);
+                });
+            done();
+    });
+
     // ====================== SIGN UP =====================
 
         it('should be able to sign up', (done) => {
