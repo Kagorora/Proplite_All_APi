@@ -10,8 +10,6 @@ const route = express.Router();
 // get all users
 route.get('/', userController.users);
 
-
-
 // Sign Up
 route.post('/api/v1/auth/signup', userController.signup);
 
