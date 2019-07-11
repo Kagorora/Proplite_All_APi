@@ -33,18 +33,13 @@ class userController {
       id: idNo, email, first_Name, last_Name, password: hashedPassword, phoneNumber, address, is_admin,
     });
 
-    if (newUser.error) { return res.status(400).json({ status: 400, error: newUser.error.details[0].message });}
+    if (newUser.error) 
+    { return res.status(400).json({ status: 400, error: newUser.error.details[0].message });}
 
     userModal.push(newUser);
 
-    // const { id } =;
-    // console.log(newUser.value.id);
-
-    return res.status(201).json({
-      status: 201,
-      // message: `${newUser.first_Name} account successfull created`,
-      data: {
-        token: jwtoken, userEmail: newUser.value.email, userFirstN: newUser.value.first_Name, lastN: newUser.value.last_Name, userphoneNumber: newUser.value.phoneNumber, userAddress: newUser.value.address, useris_admin: newUser.value.is_admin,
+    return res.status(201).json({ status: 201, data: {
+        token: jwtoken, userEmail: newUser.value.email, userFirstN: newUser.value.first_Name, lastN: newUser.value.last_Name, userphoneNumber: newUser.value.phoneNumber, userAddress: newUser.value.address, useris_admin: newUser.value.is_admin
       },
     });
   }

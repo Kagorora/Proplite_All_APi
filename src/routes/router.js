@@ -5,7 +5,6 @@ import propertiesController from '../controllers/propertiesController'
 const route = express.Router();
 
 
-
 // ============================================= USERS ================================
 // get all users
 route.get('/', userController.users);
@@ -41,7 +40,7 @@ route.get('/api/v1/property/', propertiesController.Allproperties);
 //get one advert
 route.get('/api/v1/property/:id', propertiesController.oneProperty);
 
-// get specifi advert
+// get all properties offering the same propertyType
 route.get('/properties/find/', propertiesController.findByDetail);
 
 
