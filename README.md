@@ -2,6 +2,10 @@
 
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent. 
 
+# Pivotal track link
+
+
+
 # Getting Started
 To get the project up and running on local machine, please follow the instructions
 
@@ -9,6 +13,10 @@ To get the project up and running on local machine, please follow the instructio
 
 - Nodejs should be include in you computer
   if you dont have it installed download it on : https://nodejs.org/en/download/
+  
+# Tools
+. Postman
+. code editor(vscode, ....)
   
 # clone The project from github
  
@@ -28,29 +36,33 @@ $ npm test
 
 # User Endpoints: 
 
-get all user : /
-
-Sign up:        /api/v1/auth/signup
-
-Login:         /api/v1/auth/signin
+|    Method    |     End Point   |  Public |     Action           |
+|--------------|-----------------|---------|----------------------|
+|    GET       |        /        |   true  |  get all users       |
+|    POST      |   /auth/signup  |   true  |  create user account |
+|    POST      |   /auth/signin  |   true  |  Login a user        |
 
 #Properties Endpints : 
 
-write: localhost portnumber
+|    Method    |     End Point                  |  Public |     Action                   |
+|--------------|--------------------------------|---------|------------------------------|
+|    GET       |   /api/v1/property/            |   true  |  create propertie            |
+|    PATCH     |   /api/v1/property/:id         |   true  |  update property data        |
+|    PATCH     |   /api/v1/property/:id/sold    |   true  |  mark a property as sold     |
+|    DELETE    |   /api/v1/property/:id         |   true  |  Delete a product advert     |
+|    GET       |   /api/v1/property/:id?trpe    |   true  |  Get product with same type  |
+|    GET       |   /property/:id                |   true  |  view a specifi advert       |
+               
 
-post product:            /api/v1/property/
+# Author
 
-updated:                 /api/v1/property/:id
+. Kagorora Alain Maxime
 
-Mark product as sold:   /api/v1/property/:id/sold
+# Acknowledgments
 
-Delete a product advert:    /api/v1/property/:id
+. Andela Team
 
-Get all property advert:    /api/v1/property/
 
-Get product with same type: /api/v1/property/:id
-
-view a specific advert:      /properties/find/
 
 
 
