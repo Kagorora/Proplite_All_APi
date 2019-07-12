@@ -1,13 +1,13 @@
+[![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=bg-resolve-travis-167246647)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647)
+
+
+
 # Proplite_All_APi
 
 Property Pro Lite is a platform where people can create and/or search properties for sale or rent. 
 
 # Pivotal track stories link
 https://www.pivotaltracker.com/n/projects/2359004
-
-# travis
-[![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=bg-resolve-travis-167246647)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647)
-
 
 
 # Getting Started
