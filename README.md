@@ -1,6 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=bg-resolve-travis-167246647)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647)
-
-
+  [![Build Status](https://travis-ci.com/Kagorora/Proplite_All_APi.svg?branch=Develop)](https://travis-ci.com/Kagorora/Proplite_All_APi) [![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=bg-resolve-travis-167246647)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647)
 
 # Proplite_All_APi
 
