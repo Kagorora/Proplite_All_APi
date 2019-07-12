@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "nyc --reporter=html --reporter=text --timeout=30000 mocha --require babel-register ./test/*.js --exit",
-    "build": "babel server.js --out-dir build"
+    "build": "babel server.js --out-dir build",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "ISC",
