@@ -15,10 +15,6 @@ route.post('/api/v1/auth/signup', userController.signup);
 // Login
 route.post('/api/v1/auth/signin', userController.signin);
 
-
-
-
-
 // ============================================= PROPERTIES ================================
 
 

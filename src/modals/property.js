@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 const properties = [
     {
         id: 1,
@@ -10,6 +8,7 @@ const properties = [
         city: 'Kigali',
         address: 'KN100',
         type: '3B'
+        
     }, {
         id: 2,
         owner: 'alain',
