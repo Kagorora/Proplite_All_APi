@@ -12,8 +12,7 @@ describe('Property test', () => {
   // ====================== POST PRODUCT =====================
   it('should be able to post product', (done) => {
     const newProperty = {
-      owner: 'kagorora',
-      status: 'sold',
+      owner: 'Nsenbyk',
       price: '25000',
       state: 'Rwanda',
       city: 'Kigali',
@@ -29,12 +28,36 @@ describe('Property test', () => {
         res.body.status.should.be.equal(201);
         res.body.data.should.have.property('id');
         res.body.data.should.have.property('owner');
-        res.body.data.should.have.property('status');
+        // res.body.data.should.have.property('status');
         res.body.data.should.have.property('price');
         res.body.data.should.have.property('state');
         res.body.data.should.have.property('city');
         res.body.data.should.have.property('address');
         res.body.data.should.have.property('type');
+      });
+    done();
+  });
+
+    it('should not post product if product exist', (done) => {
+    const newProperty = {
+
+    	owner: 1,
+      owner: 'kagorora',
+      status: 'sold',
+      price: '25000',
+      state: 'Rwanda',
+      city: 'Kigali',
+      address: 'KN100',
+      type: '3B',
+    };
+
+    chai.request(server)
+      .post('/api/v1/property/')
+      .send(newProperty)
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('propert exist');
       });
     done();
   });
@@ -161,8 +184,16 @@ describe('Property test', () => {
     done();
   });
 
+  it('should not to get properties by typr if not found', (done) => {
 
-
+    chai.request(server)
+      .get('/properties/find/?type=3Br')
+      .end((err, res) => {
+         res.body.status.should.be.equal(404);
+      res.body.error.should.be.equal('property Not found');
+      });
+    done();
+  });
   // ====================== GET ONE PROPERTY =====================
   it('should be able to get one property', (done) => {
 

@@ -6,11 +6,8 @@ class propertiesAd {
 
 
   static Allproperties(req, res) {
-    return res.status(200).json({
-      status: 200,
-      data: {
-        propertyModal,
-      },
+    return res.status(200).json({ status: 200,
+      data: propertyModal
     });
   }
 
@@ -19,20 +16,22 @@ class propertiesAd {
   static addProperty(req, res) {
     const idNo = propertyModal.length + 1;
 
-    const {
-      owner, status, type, price, state, city, address,
-    } = req.body;
-    const newProperty = propertySchema.validate({
-      id: idNo, owner, status, type, price, state, city, address,
-    });
+    
+    const { owner, status ,type, price, state, city, address } = req.body;
+  
+    const ownerSearch = propertyModal.find(o => o.owner === owner);
+
+    if(ownerSearch) return res.status(400).json({ status: 400, error: 'propert exist' });
+    
+    const newProperty = propertySchema.validate({id: idNo, owner,  status: 'available', type, price, state, city, address });
 
     if (!newProperty.error) {
 
-      propertyModal.push(newProperty);
+      propertyModal.push(newProperty.value);
       return res.status(201).json({
         status: 201,
         data: {
-          id: idNo, owner, status, type, price, state, city, address,
+          id: idNo, owner, status, type, price, state, city, address, status
         },
       });
 
@@ -103,9 +102,7 @@ class propertiesAd {
 
     return res.status(200).json({
       status: 200,
-      data: {
-        propertyModal,
-      },
+      data: propertyModal
     });
     // }
     // return res.status(400).json({ status: 400, error: result.error.details[0].message })
@@ -126,14 +123,12 @@ class propertiesAd {
 
   // find By Detail
   static findByDetail(req, res) {
-    const QuerySearch = propertyModal.filter(p => p.type === parseInt(req.query.type));
+    const QuerySearch = propertyModal.filter(p => p.type === req.query.type);
 
-
-    return res.status(200).json({ status: 200, data: { QuerySearch } });
-
-    // return res.status(404).json({ status: 404, error: 'property Not found'});
-
-
+  if(QuerySearch.length === 0){
+    return res.status(404).json({ status: 404, error: 'property Not found'});
+  }
+   return res.status(200).json({ status: 200, data: QuerySearch }); 
   }
 }
 
