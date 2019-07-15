@@ -1,4 +1,4 @@
-  [![Build Status](https://travis-ci.com/Kagorora/Proplite_All_APi.svg?branch=Develop)](https://travis-ci.com/Kagorora/Proplite_All_APi) [![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=Develop)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647)
+  [![Build Status](https://travis-ci.com/Kagorora/Proplite_All_APi.svg?branch=Develop)](https://travis-ci.com/Kagorora/Proplite_All_APi) [![Coverage Status](https://coveralls.io/repos/github/Kagorora/Proplite_All_APi/badge.svg?branch=Develop)](https://coveralls.io/github/Kagorora/Proplite_All_APi?branch=bg-resolve-travis-167246647) [![Maintainability](https://api.codeclimate.com/v1/badges/9aa26ef9865eae4feccf/maintainability)](https://codeclimate.com/github/Kagorora/Proplite_All_APi/maintainability)
 
 # Proplite_All_APi
 
